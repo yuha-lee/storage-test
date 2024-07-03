@@ -1,0 +1,20 @@
+@prefix : <https://ontologies.metaphacts.com/test/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:0.1 a owl:Ontology;
+  <http://open-services.net/ns/core#modifiedBy> "admin@example.com";
+  dct:contributor "admin@example.com";
+  dct:created "2024-07-03T13:06:51.255Z"^^xsd:dateTime;
+  dct:creator "admin@example.com";
+  dct:modified "2024-07-03T13:06:51.255Z"^^xsd:dateTime;
+  dct:title "test"@en;
+  <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
+  vaem:namespace <https://ontologies.metaphacts.com/test/>;
+  rdfs:label "test"@en;
+  owl:versionInfo "0.1" .
