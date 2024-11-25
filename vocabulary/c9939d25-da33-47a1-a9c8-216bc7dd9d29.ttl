@@ -1,0 +1,77 @@
+@prefix : <https://vocabularies.metaphacts.com/foodanddrinks/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vocabularies.metaphacts.com/foodanddrinks> a skos:ConceptScheme;
+  <http://open-services.net/ns/core#modifiedBy> "alice";
+  dct:contributor "alice";
+  dct:created "2024-09-18T15:50:32.172+02:00"^^xsd:dateTime;
+  dct:creator "alice";
+  dct:modified "2024-09-18T15:55:26.385+02:00"^^xsd:dateTime;
+  dct:title "FoodAndDrinks - edited"@en;
+  vaem:namespace <https://vocabularies.metaphacts.com/foodanddrinks/>;
+  rdfs:label "FoodAndDrinks"@en;
+  skos:hasTopConcept :137f0b62-b4af-4600-8c64-eb1cad064788, :7d9bed2c-5942-45fb-a99f-7f527de3b9bb;
+  skos:prefLabel "FoodAndDrinks"@en .
+
+:06e5ac13-b00d-4371-ad10-e563c16e0fbc a skos:Concept;
+  <http://open-services.net/ns/core#modifiedBy> "alice";
+  dct:contributor "alice";
+  dct:created "2024-09-18T15:51:29.171+02:00"^^xsd:dateTime;
+  dct:creator "alice";
+  dct:modified "2024-09-18T15:53:56.230+02:00"^^xsd:dateTime;
+  skos:broader :7d9bed2c-5942-45fb-a99f-7f527de3b9bb, :ad6a98df-b448-4e33-9d4a-92f61dc3979c;
+  skos:inScheme <https://vocabularies.metaphacts.com/foodanddrinks>;
+  skos:prefLabel "Beer"@en .
+
+:137f0b62-b4af-4600-8c64-eb1cad064788 a skos:Concept;
+  <http://open-services.net/ns/core#modifiedBy> "alice";
+  dct:contributor "alice";
+  dct:created "2024-09-18T15:51:13.705+02:00"^^xsd:dateTime;
+  dct:creator "alice";
+  dct:modified "2024-09-18T15:51:13.705+02:00"^^xsd:dateTime;
+  skos:inScheme <https://vocabularies.metaphacts.com/foodanddrinks>;
+  skos:prefLabel "Soft Drinks"@en .
+
+:38dd3cfe-3dbc-4739-92a0-e83e5b15d979 a skos:Collection;
+  <http://open-services.net/ns/core#modifiedBy> "alice";
+  dct:contributor "alice";
+  dct:created "2024-09-18T15:55:01.582+02:00"^^xsd:dateTime;
+  dct:creator "alice";
+  dct:modified "2024-09-18T15:55:26.385+02:00"^^xsd:dateTime;
+  skos:member :137f0b62-b4af-4600-8c64-eb1cad064788, :7d9bed2c-5942-45fb-a99f-7f527de3b9bb;
+  skos:prefLabel "collection"@en .
+
+:7d9bed2c-5942-45fb-a99f-7f527de3b9bb a skos:Concept;
+  <http://open-services.net/ns/core#modifiedBy> "alice";
+  dct:contributor "alice";
+  dct:created "2024-09-18T15:50:59.171+02:00"^^xsd:dateTime;
+  dct:creator "alice";
+  dct:modified "2024-09-18T15:53:30.159+02:00"^^xsd:dateTime;
+  skos:definition "edit"@en;
+  skos:inScheme <https://vocabularies.metaphacts.com/foodanddrinks>;
+  skos:prefLabel "Alcoholic Drinks"@en .
+
+:ad6a98df-b448-4e33-9d4a-92f61dc3979c a skos:Concept;
+  <http://open-services.net/ns/core#modifiedBy> "alice";
+  dct:contributor "alice";
+  dct:created "2024-09-18T15:52:01.000+02:00"^^xsd:dateTime;
+  dct:creator "alice";
+  dct:modified "2024-09-18T15:52:01.000+02:00"^^xsd:dateTime;
+  skos:broader :137f0b62-b4af-4600-8c64-eb1cad064788;
+  skos:inScheme <https://vocabularies.metaphacts.com/foodanddrinks>;
+  skos:prefLabel "Coke"@en .
+
+:b52b404e-fdd7-414c-936f-80a17ed7185c a skos:Concept;
+  <http://open-services.net/ns/core#modifiedBy> "alice";
+  dct:contributor "alice";
+  dct:created "2024-09-18T15:51:42.639+02:00"^^xsd:dateTime;
+  dct:creator "alice";
+  dct:modified "2024-09-18T15:51:42.639+02:00"^^xsd:dateTime;
+  skos:broader :7d9bed2c-5942-45fb-a99f-7f527de3b9bb;
+  skos:inScheme <https://vocabularies.metaphacts.com/foodanddrinks>;
+  skos:prefLabel "Wine"@en .
