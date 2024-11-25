@@ -1,0 +1,40 @@
+@prefix : <https://vocabularies.metaphacts.com/cities-vocabulary/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://vocabularies.metaphacts.com/cities-vocabulary> a skos:ConceptScheme;
+  dct:title "Cities Vocabulary"@en;
+  vaem:namespace <https://vocabularies.metaphacts.com/cities-vocabulary/>;
+  rdfs:label "Cities Vocabulary"@en;
+  skos:hasTopConcept :00d0fce6-1e3a-469e-adfe-015ab5efed3e, :4a94930f-7ea1-45ad-b318-a6b19d0d966c,
+    :d3aab4ce-9ea8-4956-9df8-9bbf35c1910d, :f7aa7e57-b56a-47c2-9474-057bfa6bf984;
+  skos:prefLabel "Cities Vocabulary"@en .
+
+:00d0fce6-1e3a-469e-adfe-015ab5efed3e a skos:Concept;
+  skos:inScheme <https://vocabularies.metaphacts.com/cities-vocabulary>;
+  skos:prefLabel "New York"@en .
+
+:26edbfb9-2489-4fff-a65d-6b581444b419 a skos:Concept;
+  skos:inScheme <https://vocabularies.metaphacts.com/cities-vocabulary>;
+  skos:prefLabel "Berlin"@en .
+
+:4a94930f-7ea1-45ad-b318-a6b19d0d966c a skos:Concept;
+  skos:inScheme <https://vocabularies.metaphacts.com/cities-vocabulary>;
+  skos:prefLabel "London"@en .
+
+:9ef38877-4aaf-4bdb-9a21-086fa8cc5d9b a skos:Collection;
+  skos:member :26edbfb9-2489-4fff-a65d-6b581444b419, :d3aab4ce-9ea8-4956-9df8-9bbf35c1910d,
+    :f7aa7e57-b56a-47c2-9474-057bfa6bf984;
+  skos:prefLabel "German Cities"@en .
+
+:d3aab4ce-9ea8-4956-9df8-9bbf35c1910d a skos:Concept;
+  skos:inScheme <https://vocabularies.metaphacts.com/cities-vocabulary>;
+  skos:prefLabel "Walldorf"@en .
+
+:f7aa7e57-b56a-47c2-9474-057bfa6bf984 a skos:Concept;
+  skos:inScheme <https://vocabularies.metaphacts.com/cities-vocabulary>;
+  skos:prefLabel "Heidelberg"@en .
