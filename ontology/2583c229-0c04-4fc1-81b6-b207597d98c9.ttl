@@ -1,0 +1,387 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix test: <http://test.metaphacts.com/resource/> .
+@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+test:2888ccd5-68de-4261-a1e8-613d9d620903 a sh:NodeShape;
+  sh:or ([
+        sh:class skos:Concept
+      ] [
+        sh:class test:City
+      ]);
+  sh:property [
+      sh:class skos:ConceptScheme;
+      sh:hasValue <https://vocabularies.metaphacts.com/cities-vocabulary>;
+      sh:path skos:inScheme
+    ] .
+
+test:Cat a owl:Class .
+
+test:CatShape a sh:NodeShape;
+  sh:property test:petNameShape-Cat;
+  sh:targetClass test:Cat .
+
+test:City a owl:Class;
+  rdfs:label "City"@en;
+  rdfs:subClassOf skos:Concept .
+
+test:CityShape a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path rdfs:label
+    ];
+  sh:targetClass test:City .
+
+test:ClassifiedAsPropertyShape a sh:PropertyShape;
+  sh:class skos:Concept;
+  sh:path test:classifiedAs .
+
+test:Country a owl:Class;
+  rdfs:label "Country"@en;
+  rdfs:subClassOf skos:Concept .
+
+test:CountryShape a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path rdfs:label
+    ];
+  sh:targetClass test:Country .
+
+test:Dog a owl:Class .
+
+test:DogShape a sh:NodeShape;
+  sh:property test:petNameShape-Dog;
+  sh:targetClass test:Dog .
+
+test:EconomicField a owl:Class;
+  rdfs:label "Economic Field" .
+
+test:EconomicFieldCategory a owl:Class;
+  rdfs:label "Economic Field Category";
+  rdfs:subClassOf skos:Concept .
+
+test:EconomicFieldShape a sh:NodeShape;
+  sh:property test:economic-scheme;
+  sh:targetClass test:EconomicField .
+
+test:EconomicThing a owl:Class;
+  rdfs:label "Economic Thing" .
+
+test:EconomicThingShape a sh:NodeShape;
+  sh:property test:ClassifiedAsPropertyShape;
+  sh:targetClass test:EconomicThing .
+
+test:Employee a owl:Class;
+  rdfs:label "Angestellte(r)"@de, "Employee"@en;
+  rdfs:subClassOf test:Person .
+
+test:EmployeeShape a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:path rdfs:label
+    ], [ a sh:PropertyShape;
+      sh:class test:Project;
+      sh:path test:hasProject
+    ], [ a sh:PropertyShape;
+      sh:class foaf:Organization;
+      sh:path test:worksFor
+    ];
+  sh:targetClass test:Employee .
+
+test:HistoryField a owl:Class;
+  rdfs:label "History Field" .
+
+test:HistoryFieldCategory a owl:Class;
+  rdfs:label "History Field Category";
+  rdfs:subClassOf skos:Concept .
+
+test:HistoryFieldShape a sh:NodeShape;
+  sh:property test:history-topic-collection;
+  sh:targetClass test:HistoryField .
+
+test:HistoryTopicCollectionShape a sh:NodeShape;
+  sh:or ([
+        sh:class skos:Concept
+      ] [
+        sh:class test:HistoryFieldCategory
+      ]);
+  sh:property [
+      sh:class skos:Collection;
+      sh:hasValue test:MyHistoryCollection;
+      sh:path [
+          sh:inversePath skos:member
+        ]
+    ] .
+
+test:MP_Integration_Ontology a owl:Ontology .
+
+test:Manager a owl:Class;
+  rdfs:label "Manager"@de, "Manager"@en;
+  rdfs:subClassOf test:Employee .
+
+test:ManagerShape a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:class test:Employee;
+      sh:path test:hasTeamMember
+    ];
+  sh:targetClass test:Manager .
+
+test:Organization a owl:Class;
+  rdfs:label "Organization"@en .
+
+test:OrganizationShape a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path rdfs:label
+    ], [
+      sh:or ([
+            sh:node test:2888ccd5-68de-4261-a1e8-613d9d620903
+          ] [
+            sh:node test:b10d3863-b816-4181-bd1e-3fc39fe8c980
+          ]);
+      sh:path test:location
+    ];
+  sh:targetClass test:Organization .
+
+test:Person a owl:Class .
+
+test:PersonShape a sh:NodeShape;
+  sh:property [
+      sh:datatype xsd:string;
+      sh:path test:firstName
+    ], [
+      sh:datatype xsd:string;
+      sh:path test:lastName
+    ], [
+      sh:datatype xsd:string;
+      sh:path test:gender
+    ], [ a sh:PropertyShape;
+      <http://datashapes.org/dash#propertyRole> <http://datashapes.org/dash#DescriptionRole>;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "dateOfBirth";
+      sh:datatype xsd:date;
+      sh:maxCount 1;
+      sh:minCount 1;
+      sh:path test:dateOfBirth
+    ], [ a sh:PropertyShape;
+      <http://datashapes.org/dash#propertyRole> <http://datashapes.org/dash#DescriptionRole>;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "dateOfDeath";
+      sh:datatype xsd:date;
+      sh:maxCount 1;
+      sh:path test:dateOfDeath
+    ], [ a sh:PropertyShape;
+      <http://datashapes.org/dash#propertyRole> <http://datashapes.org/dash#DescriptionRole>;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "occupation";
+      sh:datatype xsd:string;
+      sh:path test:occupation
+    ];
+  sh:targetClass test:Person .
+
+test:Project a owl:Class;
+  rdfs:label "Projekt"@de, "Project"@en .
+
+test:ProjectShape a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      <http://datashapes.org/dash#propertyRole> <http://datashapes.org/dash#DescriptionRole>;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "belongsTo";
+      sh:class foaf:Organization;
+      sh:path test:belongsTo
+    ], [ a sh:PropertyShape;
+      <http://datashapes.org/dash#propertyRole> <http://datashapes.org/dash#DescriptionRole>;
+      sh:path rdfs:label
+    ], [
+      sh:or ([
+            sh:class test:Person
+          ] [
+            sh:class test:Organization
+          ]);
+      sh:path test:contributor
+    ];
+  sh:targetClass test:Project .
+
+test:PsychologyConceptShape a sh:NodeShape;
+  sh:or ([
+        sh:class skos:Concept
+      ] [
+        sh:class test:PsychologyFieldCategory
+      ]);
+  sh:property [
+      sh:class skos:Concept;
+      sh:hasValue <http://zbw.eu/stw/thsys/70017>;
+      sh:path [
+          sh:oneOrMorePath skos:broader
+        ]
+    ] .
+
+test:PsychologyField a owl:Class;
+  rdfs:label "Psychology Field" .
+
+test:PsychologyFieldCategory a owl:Class;
+  rdfs:label "Psychology Field Category";
+  rdfs:subClassOf skos:Concept .
+
+test:PsychologyFieldShape a sh:NodeShape;
+  sh:property test:psychology-field-concept;
+  sh:targetClass test:PsychologyField .
+
+test:b10d3863-b816-4181-bd1e-3fc39fe8c980 a sh:NodeShape;
+  sh:or ([
+        sh:class skos:Concept
+      ] [
+        sh:class test:Country
+      ]);
+  sh:property [
+      sh:class skos:ConceptScheme;
+      sh:hasValue <http://publications.europa.eu/resource/authority/country>;
+      sh:path skos:inScheme
+    ] .
+
+test:belongsTo a owl:ObjectProperty;
+  rdfs:domain test:Project .
+
+test:classifiedAs a owl:ObjectProperty;
+  rdfs:label "classified as" .
+
+test:contributor a owl:ObjectProperty;
+  rdfs:label "contributor"@en .
+
+test:dateOfBirth a owl:DatatypeProperty;
+  rdfs:domain test:Person .
+
+test:dateOfDeath a owl:DatatypeProperty;
+  rdfs:domain test:Person .
+
+test:economic-scheme a sh:PropertyShape;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:node test:economicShape;
+  sh:path test:economicField .
+
+test:economicField a owl:ObjectProperty;
+  rdfs:label "economic field" .
+
+test:economicShape a sh:NodeShape;
+  sh:or ([
+        sh:class skos:Concept
+      ] [
+        sh:class test:EconomicFieldCategory
+      ]);
+  sh:property [
+      sh:class skos:ConceptScheme;
+      sh:hasValue <http://zbw.eu/stw>;
+      sh:path skos:inScheme
+    ] .
+
+test:firstName a owl:DatatypeProperty;
+  rdfs:domain test:Person .
+
+test:gender a owl:DatatypeProperty;
+  rdfs:domain test:Person .
+
+test:hasProject a owl:ObjectProperty;
+  rdfs:domain test:Employee .
+
+test:hasTeamMember a owl:ObjectProperty;
+  rdfs:domain test:Manager .
+
+test:history-topic-collection a sh:PropertyShape;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:node test:HistoryTopicCollectionShape;
+  sh:path test:historyField .
+
+test:historyField a owl:ObjectProperty;
+  rdfs:label "history field" .
+
+test:lastName a owl:DatatypeProperty;
+  rdfs:domain test:Person .
+
+test:location a owl:ObjectProperty;
+  rdfs:label "location"@en .
+
+test:occupation a owl:DatatypeProperty;
+  rdfs:domain test:Person .
+
+test:petName a owl:DatatypeProperty .
+
+test:petNameShape-Cat a sh:PropertyShape;
+  sh:datatype rdf:langString;
+  sh:minCount 2;
+  sh:path test:petName;
+  sh:uniqueLang true .
+
+test:petNameShape-Dog a sh:PropertyShape;
+  sh:datatype rdf:langString;
+  sh:minCount 1;
+  sh:path test:petName .
+
+test:psychology-field-concept a sh:PropertyShape;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:node test:PsychologyConceptShape;
+  sh:path test:psychologyField .
+
+test:psychologyField a owl:ObjectProperty;
+  rdfs:label "psychology field" .
+
+test:worksFor a owl:ObjectProperty;
+  rdfs:domain test:Employee .
+
+<http://www.metaphacts.com/instances/qaRules#DeathDateBeforeBirthDate> a sh:NodeShape;
+  sh:sparql [ a sh:SPARQLConstraint;
+      sh:message "Persons with date of death before date of birth.";
+      sh:prefixes [
+          sh:declare [
+              sh:namespace "http://test.metaphacts.com/resource/"^^xsd:anyURI;
+              sh:prefix "test"
+            ]
+        ];
+      sh:select """
+        SELECT DISTINCT ?this (?birthDate as ?value) {
+          ?this a test:Person .
+          ?this test:dateOfBirth ?birthDate .
+          ?this test:dateOfDeath ?deathDate .
+          FILTER (?deathDate < ?birthDate)
+        }
+    """;
+      sh:severity sh:Error
+    ];
+  sh:targetClass test:Person .
+
+foaf:OrganizationShape a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      sh:path rdfs:label
+    ];
+  sh:targetClass foaf:Organization .
+
+foaf:PersonShape a sh:NodeShape;
+  sh:property [ a sh:PropertyShape;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "firstName";
+      sh:datatype xsd:string;
+      sh:path foaf:firstName
+    ], [ a sh:PropertyShape;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "lastName";
+      sh:datatype xsd:string;
+      sh:path foaf:lastName
+    ], [ a sh:PropertyShape;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "birthday";
+      sh:datatype xsd:date;
+      sh:path foaf:birthday
+    ], [ a sh:PropertyShape;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "img";
+      sh:datatype xsd:anyURI;
+      sh:path foaf:img
+    ], [ a sh:PropertyShape;
+      <http://datashapes.org/dash#propertyRole> <http://datashapes.org/dash#DescriptionRole>;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "homeBase";
+      sh:path foaf:based_near
+    ], [ a sh:PropertyShape;
+      <http://datashapes.org/dash#propertyRole> <http://datashapes.org/dash#DescriptionRole>;
+      <http://www.metaphacts.com/ontologies/platform#projectionVariableName> "knows";
+      sh:path foaf:knows
+    ];
+  sh:targetClass foaf:Person .
