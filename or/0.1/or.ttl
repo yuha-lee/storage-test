@@ -1,0 +1,100 @@
+@prefix : <https://ontologies.metaphacts.com/or/> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<http://www.metaphacts.com/metaschema#Or2> rdfs:label "or" .
+
+<http://www.metaphacts.com/metaschema#Or3> rdfs:label "or" .
+
+:0.1 a owl:Ontology;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-28T14:58:38.859+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  dct:title "or"@en;
+  <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/published>;
+  vaem:namespace <https://ontologies.metaphacts.com/or/>;
+  rdfs:label "or"@en;
+  owl:versionInfo "0.1" .
+
+:Organization a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Organization"@en .
+
+:Person a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Person"@en .
+
+:Study a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Study"@en .
+
+:StudyShape a sh:NodeShape;
+  sh:property [
+      sh:or ([
+            sh:class :Organization
+          ] [
+            sh:class :Person
+          ]);
+      sh:path :createdBy
+    ];
+  sh:targetClass :Study .
+
+:University a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "University"@en .
+
+:UniversityShape a sh:NodeShape;
+  sh:property [
+      sh:or ([
+            sh:class :Organization
+          ] [
+            sh:class :Person
+          ]);
+      sh:path :ownedBy
+    ];
+  sh:targetClass :University .
+
+:createdBy a owl:ObjectProperty;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "createdBy"@en .
+
+:ownedBy a owl:ObjectProperty;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-28T15:02:44.153+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "ownedBy"@en .
