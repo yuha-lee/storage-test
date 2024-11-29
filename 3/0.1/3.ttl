@@ -7,14 +7,63 @@
 @prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+<http://www.metaphacts.com/metaschema#Or1> rdfs:label "or" .
+
 :0.1 a owl:Ontology;
   <http://open-services.net/ns/core#modifiedBy> "admin";
   dct:contributor "admin";
   dct:created "2024-11-29T11:42:35.705+01:00"^^xsd:dateTime;
   dct:creator "admin";
-  dct:modified "2024-11-29T11:42:35.705+01:00"^^xsd:dateTime;
+  dct:modified "2024-11-29T11:43:13.666+01:00"^^xsd:dateTime;
   dct:title "3"@en;
-  <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
+  <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/published>;
   vaem:namespace <https://ontologies.metaphacts.com/3/>;
   rdfs:label "3"@en;
   owl:versionInfo "0.1" .
+
+:Organization a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-29T11:43:13.666+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-29T11:43:13.666+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Organization"@en .
+
+:Person a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-29T11:43:13.666+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-29T11:43:13.666+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Person"@en .
+
+:Study a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-29T11:43:13.666+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-29T11:43:13.666+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Study"@en .
+
+:StudyShape a sh:NodeShape;
+  sh:property [
+      sh:or ([
+            sh:class :Organization
+          ] [
+            sh:class :Person
+          ]);
+      sh:path :createdBy
+    ];
+  sh:targetClass :Study .
+
+:createdBy a owl:ObjectProperty;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-11-29T11:43:13.666+01:00"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-11-29T11:43:13.666+01:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "createdBy"@en .
