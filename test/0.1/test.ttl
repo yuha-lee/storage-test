@@ -12,9 +12,18 @@
   dct:contributor "admin@example.com";
   dct:created "2025-03-21T14:07:52.363Z"^^xsd:dateTime;
   dct:creator "admin@example.com";
-  dct:modified "2025-03-21T14:07:52.363Z"^^xsd:dateTime;
+  dct:modified "2025-03-21T14:15:07.045Z"^^xsd:dateTime;
   dct:title "test"@en;
   <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
   vaem:namespace <https://ontologies.metaphacts.com/test/>;
   rdfs:label "test"@en;
   owl:versionInfo "0.1" .
+
+:Test a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin@example.com";
+  dct:contributor "admin@example.com";
+  dct:created "2025-03-21T14:07:57.636Z"^^xsd:dateTime;
+  dct:creator "admin@example.com";
+  dct:modified "2025-03-21T14:15:07.045Z"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "test111222"@en .
