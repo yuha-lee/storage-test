@@ -12,7 +12,7 @@
   dct:contributor "kge", "ks";
   dct:created "2025-03-21T15:57:06.884Z"^^xsd:dateTime;
   dct:creator "kge";
-  dct:modified "2025-03-21T15:57:58.153Z"^^xsd:dateTime;
+  dct:modified "2025-03-21T16:06:49.064Z"^^xsd:dateTime;
   dct:title "test"@en;
   <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
   vaem:namespace <https://ontologies.metaphacts.com/test/>;
@@ -24,6 +24,6 @@
   dct:contributor "ks";
   dct:created "2025-03-21T15:57:58.153Z"^^xsd:dateTime;
   dct:creator "ks";
-  dct:modified "2025-03-21T15:57:58.153Z"^^xsd:dateTime;
+  dct:modified "2025-03-21T16:06:49.064Z"^^xsd:dateTime;
   rdfs:isDefinedBy :0.1;
-  rdfs:label "test"@en .
+  rdfs:label "1test2"@en .
