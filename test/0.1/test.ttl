@@ -8,13 +8,22 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :0.1 a owl:Ontology;
-  <http://open-services.net/ns/core#modifiedBy> "kge";
-  dct:contributor "kge";
+  <http://open-services.net/ns/core#modifiedBy> "ks";
+  dct:contributor "kge", "ks";
   dct:created "2025-03-21T15:57:06.884Z"^^xsd:dateTime;
   dct:creator "kge";
-  dct:modified "2025-03-21T15:57:06.884Z"^^xsd:dateTime;
+  dct:modified "2025-03-21T15:57:58.153Z"^^xsd:dateTime;
   dct:title "test"@en;
   <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
   vaem:namespace <https://ontologies.metaphacts.com/test/>;
   rdfs:label "test"@en;
   owl:versionInfo "0.1" .
+
+:Test a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "ks";
+  dct:contributor "ks";
+  dct:created "2025-03-21T15:57:58.153Z"^^xsd:dateTime;
+  dct:creator "ks";
+  dct:modified "2025-03-21T15:57:58.153Z"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "test"@en .
